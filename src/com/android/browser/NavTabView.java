@@ -86,9 +86,9 @@ public class NavTabView extends LinearLayout {
             mTitle.setText(txt);
         }
         if (mTab.isSnapshot()) {
-            setTitleIcon(R.drawable.ic_history_holo_dark);
+            setTitleIcon(R.drawable.ic_history_dark);
         } else if (mTab.isPrivateBrowsingEnabled()) {
-            setTitleIcon(R.drawable.ic_incognito_holo_dark);
+            setTitleIcon(R.drawable.ic_incognito_dark);
         } else {
             setTitleIcon(0);
         }
@@ -105,6 +105,11 @@ public class NavTabView extends LinearLayout {
 
     protected boolean isHighlighted() {
         return mHighlighted;
+    }
+
+    protected Long getWebViewId(){
+        if(mTab == null) return null;
+        return new Long(mTab.getId());
     }
 
     protected void setWebView(Tab tab) {
